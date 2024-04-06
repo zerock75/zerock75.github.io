@@ -54,8 +54,7 @@ google_analytics:
 goatcounter:
   id: zerock # fill in your Goatcounter ID
 
-pageviews:
-  provider: goatcounter
+
 
 # Prefer color scheme setting.
 #
