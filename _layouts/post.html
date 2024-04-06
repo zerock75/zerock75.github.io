@@ -82,6 +82,16 @@ tail_includes:
     <!-- .post-meta -->
   </header>
 
+  {% if jekyll.environment != 'production' %}
+  <div style="text-align: center;">
+    <a href="http://hits.dwyl.com/{{ site.url | remove_first: 'https://' | remove_first: 'http://' }}{{ page.url }}"
+      target="_blank">
+      <img
+        src="http://hits.dwyl.com/{{ site.url | remove_first: 'https://' | remove_first: 'http://' }}{{ page.url }}.svg" alt="hits" />
+    </a>
+  </div>
+  {% endif %}
+
   <div class="content">
     {{ content }}
   </div>

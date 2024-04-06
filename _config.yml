@@ -52,7 +52,7 @@ google_analytics:
   id:  # fill in your Google Analytics ID
 
 goatcounter:
-  id: # fill in your Goatcounter ID
+  id: zerock # fill in your Goatcounter ID
 
 # Prefer color scheme setting.
 #
