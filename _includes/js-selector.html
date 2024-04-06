@@ -101,8 +101,6 @@
     <script defer src="{{ 'app.min.js' | prepend: js_dist | relative_url }}"></script>
   {% endif %}
 
-  <script src="/assets/js/svg-inject.min.js"></script>
-
   <!-- GA -->
   {% if site.google_analytics.id != empty and site.google_analytics.id %}
     {% include google-analytics.html %}
