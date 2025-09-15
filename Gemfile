@@ -31,3 +31,5 @@ gem "base64"
 gem "logger"
 
 gem "bigdecimal"
+
+gem "fiddle"
