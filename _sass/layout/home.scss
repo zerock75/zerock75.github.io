@@ -1,6 +1,8 @@
 /*
   Style for Homepage
 */
+@use 'addon/variables' as *;
+@use 'addon/module' as *;
 
 #post-list {
   margin-top: 2rem;

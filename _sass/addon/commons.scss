@@ -1,4 +1,8 @@
 /* The common styles */
+@use 'addon/variables' as *;
+@use 'addon/module' as *;
+@use 'colors/typography-light' as *;
+@use 'colors/typography-dark' as *;
 
 html {
   @media (prefers-color-scheme: light) {
