@@ -1,4 +1,9 @@
-
+---
+title: 우분투 24.04 nftable 전용 방화벽 설정 가이드
+date: 2025-09-26
+categories: [Server, Ubuntu]
+tag: [linux, nftable, ubuntu]
+---
 
 # Ubuntu 24.04 - nftables 전용 방화벽 설정 가이드
 
