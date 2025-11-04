@@ -16,6 +16,7 @@ systemctl status nftables
 sudo nft list ruleset
 ```
 
+
 ## 2. iptables 흔적 정리
 ```bash
 # iptables 규칙 초기화
