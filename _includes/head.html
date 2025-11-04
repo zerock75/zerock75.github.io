@@ -60,7 +60,9 @@
   {% include_cached favicons.html %}
 
   {% if site.resources.ignore_env != jekyll.environment and site.resources.self_hosted %}
-    <link href="{{ site.data.origin[type].webfonts | relative_url }}" rel="stylesheet">
+    {% if site.data.origin[type].webfonts %}
+      <link href="{{ site.data.origin[type].webfonts | relative_url }}" rel="stylesheet">
+    {% endif %}
 
   {% else %}
     {% for cdn in site.data.origin[type].cdns %}
@@ -68,7 +70,10 @@
       <link rel="dns-prefetch" href="{{ cdn.url }}" {{ cdn.args }}>
     {% endfor %}
 
-    <link rel="stylesheet" href="{{ site.data.origin[type].webfonts | relative_url }}">
+    {% if site.data.origin[type].webfonts %}
+      <link rel="stylesheet" href="{{ site.data.origin[type].webfonts | relative_url }}">
+    {% endif %}
+
   {% endif %}
 
   <!-- GA -->
@@ -81,24 +86,33 @@
   {% endif %}
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="{{ site.data.origin[type].bootstrap.css | relative_url }}">
-
+  {% if site.data.origin[type].bootstrap.css %}
+    <link rel="stylesheet" href="{{ site.data.origin[type].bootstrap.css | relative_url }}">
+  {% endif %}
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ site.data.origin[type].fontawesome.css | relative_url }}">
-
+  {% if site.data.origin[type].fontawesome.css %}
+    <link rel="stylesheet" href="{{ site.data.origin[type].fontawesome.css | relative_url }}">
+  {% endif %}
+  <!-- Theme CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/:THEME.css' | replace: ':THEME', site.theme | relative_url }}">
 
   {% if site.toc and page.toc %}
-    <link rel="stylesheet" href="{{ site.data.origin[type].toc.css | relative_url }}">
+    {% if site.data.origin[type].toc.css %}
+      <link rel="stylesheet" href="{{ site.data.origin[type].toc.css | relative_url }}">
+    {% endif %}
   {% endif %}
 
   {% if page.layout == 'post' or page.layout == 'page' or page.layout == 'home' %}
-    <link rel="stylesheet" href="{{ site.data.origin[type]['lazy-polyfill'].css | relative_url }}">
+    {% if site.data.origin[type]['lazy-polyfill'].css %}
+      <link rel="stylesheet" href="{{ site.data.origin[type]['lazy-polyfill'].css | relative_url }}">
+    {% endif %}
   {% endif %}
 
   {% if page.layout == 'page' or page.layout == 'post' %}
     <!-- Manific Popup -->
-    <link rel="stylesheet" href="{{ site.data.origin[type].magnific-popup.css | relative_url }}">
+    {% if site.data.origin[type].magnific-popup.css %}
+      <link rel="stylesheet" href="{{ site.data.origin[type].magnific-popup.css | relative_url }}">
+    {% endif %}
   {% endif %}
 
   <!-- JavaScript -->
