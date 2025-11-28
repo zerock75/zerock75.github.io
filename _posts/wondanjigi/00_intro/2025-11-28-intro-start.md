@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "00. Intro: Project W" 
-category: 00-intro-project-w
+title: "Intro" 
+category: "원단지기"
 date: 2025-11-28
 ---
 
