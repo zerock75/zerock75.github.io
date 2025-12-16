@@ -37,8 +37,8 @@ table → chain → rule
 > chain → 그 테이블 안에서 패킷이 흐르는 “경로”
 > rule → chain 안에서 실제로 검사하고 허용/차단하는 조건
 
-
-```bash /etc/nftables.conf
+***/etc/nftables.conf***
+```bash 
 #!/usr/sbin/nft -f
 flush ruleset
 
