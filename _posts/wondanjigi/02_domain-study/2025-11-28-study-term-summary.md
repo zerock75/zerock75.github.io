@@ -29,7 +29,7 @@ permalink: /wondanjigi/study/
    - `Items` 테이블 구분: 원자재(Yarn) vs 반제품(Greige) vs 완제품(Fabric).
    - 생지 재고는 완제품 제고와 섞이면 안 됨. (계정 구분 필수)
 
-### 염색/가공(Dyeing & Finishing) - [화학적 변형 공정](중요)
+### 염색/가공(Dyeing & Finishing) - [화학적 변형 공정]
  - **행위:** 생지에 색을 입히고(염색), 부드럽게 만들거나 기능을 더함(가공)
  - **개발 포인트:**
    - 단위 변환 발생: 여기서부터 **Kg -> Yard**로 관리 단위가 바뀜
