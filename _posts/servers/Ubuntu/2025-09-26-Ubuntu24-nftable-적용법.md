@@ -210,3 +210,4 @@ sudo nft list ruleset
 # 포트 확인
 sudo ss -tulnp
 ```
+
