@@ -145,7 +145,8 @@ chain output  { type filter hook output  priority 0; policy accept; }
 
 ## 적용
 ```
-sudo nft -c -f /etc/nftables.conf   # 문법 체크
+sudo nft -c -f /etc/nftables.conf   # 문법 체크. 아무런 내용이 없다면 OK!
+sudo nft flush ruleset              # 기존 nft rule을 비워줘야 함. 안 그러면 기존걸 덮어 쓰는게 아니라 중복으로 추가 됨!
 sudo nft -f /etc/nftables.conf      # 적용
 sudo nft list ruleset               # 확인
 sudo systemctl enable nftables
