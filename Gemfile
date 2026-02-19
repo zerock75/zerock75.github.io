@@ -34,4 +34,5 @@ gem "bigdecimal"
 
 gem "fiddle"
 
-gem "jekyll-sass-converter", "~> 2.0"
+#gem "jekyll-sass-converter", "~> 2.0"
+# gem "jekyll-sass-converter", "~> 3.0"
