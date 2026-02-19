@@ -33,3 +33,5 @@ gem "logger"
 gem "bigdecimal"
 
 gem "fiddle"
+
+gem "jekyll-sass-converter", "~> 2.0"
