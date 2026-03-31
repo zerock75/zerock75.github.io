@@ -129,3 +129,5 @@ Docker Desktop 또한 기본 저장 위치가 **C** 드라이브이므로 다른
    move D:\Docker-Data.bak\DockerDesktopWSL\disk\docker_data.vhdx D:\Docker-Data\DockerDesktopWSL\disk\docker_data.vhdx
 ```
    {: .nolineno }
+
+
