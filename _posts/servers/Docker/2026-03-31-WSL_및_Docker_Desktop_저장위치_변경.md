@@ -1,5 +1,5 @@
 ---
-title: Docker Desktop 저장위치 변경
+title: WSL 및 Docker Desktop 저장위치 변경
 date: 2026-03-31
 categories: [Docker, backup]
 ---
@@ -9,7 +9,7 @@ categories: [Docker, backup]
 Docker는 WSL 위에서 동작하며, WSL의 기본 OS는 **C** 드라이브에 위치한다.
 
 작업 중인 소스 파일이 **C** 드라이브에 있다면 OS 재설치 시 데이터를 잃을 위험이 있다.
-이를 예방하려면 **C** 드라이브에 위치한 **Docker Image**를 **D** 드라이브 등 다른 곳으로 이동해야 한다.
+이를 예방하려면 **C** 드라이브에 위치한 **WSL 배포판과 Docker 데이터**를 **D** 드라이브 등 다른 곳으로 이동해야 한다.
 
 먼저 구조부터 확인해 보자.
 
@@ -39,29 +39,42 @@ wsl -l -v
 ```powershell
    wsl --export Ubuntu "<export_할_파일명>".tar
 ```
-   {: .nolineno }
+{: .nolineno }
+
 
 2. C 드라이브에 설치된 기존 배포판 삭제
-```powershell
-   wsl --unregister Ubuntu
-```
-   {: .nolineno }
+  > `wsl --unregister` 실행 시 vhdx 디스크를 물리적으로 삭제한다.  
+  {: .prompt-danger}
+
+  ```powershell
+     wsl --unregister Ubuntu
+  ```
+  {: .nolineno }
+
 
 3. 다른 드라이브의 지정된 경로로 복원 (새로운 VHD 생성)
-```powershell
-   wsl --import Ubuntu "<새로운_저장_위치>" "<export_한_파일명>".tar
-```
-   {: .nolineno }
+  ```powershell
+    wsl --import Ubuntu "<새로운_저장_위치>" "<export_한_파일명>".tar
+  ```
+  {: .nolineno }
 
-4. 추출한 데이터 삭제.
-```powershell
-   del "<export_한_파일명>".tar
-```
-   {: .nolineno }
+
+4. WSL 기본판을 Ubuntu 로 변경
+  ```powershell
+  wsl --set-default Ubuntu
+  ```
+  {: .nolineno }
+
+
+5. 추출한 데이터 삭제.
+  ```powershell
+  del "<export_한_파일명>".tar
+  ```
+  {: .nolineno }
 
 
 ## 이전에 사용한 WSL 복원
-쭉 사용하다가 OS가 느려지거나 문제가 발생한 경우, OS를 재설치하고 기존 Docker 컨테이너의 소스코드를 복원해야 한다.
+쭉 사용하다가 OS가 느려지거나 문제가 발생한 경우, OS를 재설치하고 기존 WSL(Ubuntu)의 소스코드를 복원해야 한다.
 
 1. WSL 설치
 ```powershell
