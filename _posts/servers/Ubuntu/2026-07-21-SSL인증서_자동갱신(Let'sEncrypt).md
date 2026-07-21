@@ -92,12 +92,12 @@ acme.sh --issue \
 ```bash
 mkdir -p /etc/ssl/mydomain.com
 
-chmod 600 /etc/ssl/mydomain.com/privkey.pem
-
 acme.sh --install-cert -d mydomain.com \
   --key-file       /etc/ssl/mydomain.com/privkey.pem \
   --fullchain-file /etc/ssl/mydomain.com/fullchain.pem \
   --reloadcmd      "systemctl reload nginx"
+
+chmod 600 /etc/ssl/mydomain.com/privkey.pem
 ```
 apache 의 경우 `--reloadcmd` 옵션에 `nginx` 대신 `apache2`를 넣으면 된다.
 
