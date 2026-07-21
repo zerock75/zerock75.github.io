@@ -143,3 +143,5 @@ echo | openssl s_client -connect mydomain.com:443 -servername mydomain.com 2>/de
 acme.sh --renew -d mydomain.com --force
 ```
 
+### 6. 마지막
+이후 도메인을 추가하려면 3번부터 진행하면 된다.
