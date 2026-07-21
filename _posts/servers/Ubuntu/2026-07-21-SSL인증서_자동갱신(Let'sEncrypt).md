@@ -97,9 +97,9 @@ chmod 600 /etc/ssl/mydomain.com/privkey.pem
 acme.sh --install-cert -d mydomain.com \
   --key-file       /etc/ssl/mydomain.com/privkey.pem \
   --fullchain-file /etc/ssl/mydomain.com/fullchain.pem \
-  --reloadcmd      "systemctl reload apache2"
+  --reloadcmd      "systemctl reload nginx"
 ```
-nginx 의 경우 `--reloadcmd` 옵션에 `apache2` 대신 `nginx`를 넣으면 된다.
+apache 의 경우 `--reloadcmd` 옵션에 `nginx` 대신 `apache2`를 넣으면 된다.
 
 VirtualHost 설정:
 ```bash
