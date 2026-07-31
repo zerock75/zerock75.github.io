@@ -57,7 +57,7 @@ Add a domain 에 해당 도메인을 넣고 `connect` 버튼이 나오면 `conne
 
 ### 1. acme.sh 설치
 ```bash
-curl https://get.acme.sh | sh -s email=your@email.com
+curl https://get.acme.sh | sh -s email=<my@email.com>
 source ~/.bashrc
 ```
 설치하면 cron에 매일 1회 갱신 체크가 자동 등록된다. 확인:
@@ -81,7 +81,7 @@ export CF_Token="클라우드플레어에서_발급한_토큰"
 ### 3. 인증서 발급
 ```bash
 acme.sh --issue \
-  -d mydomain.com -d '*.mydomain.com' \
+  -d <mydomain.com> -d '*.<mydomain.com>' \
   --dns dns_cf \
   --server letsencrypt \
   --keylength 2048
@@ -90,11 +90,11 @@ acme.sh --issue \
 
 ### 4. 서버에 설치
 ```bash
-mkdir -p /etc/ssl/mydomain.com
+mkdir -p /etc/ssl/<mydomain.com>
 
-acme.sh --install-cert -d mydomain.com \
-  --key-file       /etc/ssl/mydomain.com/privkey.pem \
-  --fullchain-file /etc/ssl/mydomain.com/fullchain.pem \
+acme.sh --install-cert -d <mydomain.com> \
+  --key-file       /etc/ssl/<mydomain.com>/privkey.pem \
+  --fullchain-file /etc/ssl/<mydomain.com>/fullchain.pem \
   --reloadcmd      "systemctl reload nginx"
 
 chmod 600 /etc/ssl/mydomain.com/privkey.pem
@@ -104,12 +104,12 @@ apache 의 경우 `--reloadcmd` 옵션에 `nginx` 대신 `apache2`를 넣으면 
 VirtualHost 설정:
 ```bash
 <VirtualHost *:443>
-    ServerName mydomain.com
-    ServerAlias *.mydomain.com
+    ServerName <mydomain.com>
+    ServerAlias <*.mydomain.com>
 
     SSLEngine on
-    SSLCertificateFile      /etc/ssl/mydomain.com/fullchain.pem
-    SSLCertificateKeyFile   /etc/ssl/mydomain.com/privkey.pem
+    SSLCertificateFile      /etc/ssl/<mydomain.com>/fullchain.pem
+    SSLCertificateKeyFile   /etc/ssl/<mydomain.com>/privkey.pem
 </VirtualHost>
 ```
 
@@ -117,10 +117,10 @@ Nginx 설정:
 ```bash
 server {
 	listen		443 ssl;
-	server_name	mydomain.com www.mydomain.com;
+	server_name	<mydomain.com> <www.mydomain.com>;
 
-	ssl_certificate_key	/etc/ssl/mydomain.com/privkey.pem;
-	ssl_certificate		/etc/ssl/mydomain.com/fullchain.pem;
+	ssl_certificate_key	/etc/ssl/<mydomain.com>/privkey.pem;
+	ssl_certificate		/etc/ssl/<mydomain.com>/fullchain.pem;
 }
 ```
 
@@ -137,10 +137,10 @@ nginx -t && systemctl reload nginx
 ### 5. 검증
 ```bash
 # 인증서 적용 확인
-echo | openssl s_client -connect mydomain.com:443 -servername mydomain.com 2>/dev/null | openssl x509 -noout -issuer -dates -ext subjectAltName
+echo | openssl s_client -connect <mydomain.com>:443 -servername <mydomain.com> 2>/dev/null | openssl x509 -noout -issuer -dates -ext subjectAltName
 
 # 갱신 시뮬레이션 (강제 갱신 테스트)
-acme.sh --renew -d mydomain.com --force
+acme.sh --renew -d <mydomain.com> --force
 ```
 
 ### 6. 마지막
