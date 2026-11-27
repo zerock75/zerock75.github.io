@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 주차 위치 개인정보처리방침
-permalink: /privacy-policy/
+categories: [기타]
 ---
 
 시행일: 2026년 11월 9일
